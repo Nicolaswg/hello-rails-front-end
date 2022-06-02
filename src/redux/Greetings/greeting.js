@@ -1,7 +1,5 @@
-const GET_MESSAGES = 'message/GET_MESSAGE';
-const API_URL = 'http://localhost:3000/api/v1/message';
-
-const initialState = '';
+const GET_MESSAGES = 'messages/GET_MESSAGES';
+const initialState = 'hello world';
 
 export const getMessage = (payload) => ({
   type: GET_MESSAGES,
@@ -9,12 +7,11 @@ export const getMessage = (payload) => ({
 });
 
 export const getMessageFromAPI = () => async (dispatch) => {
-  await fetch(API_URL)
+  await fetch('http://localhost:3000/api/v1/messages')
     .then((response) => response.json)
     .then((json) => {
       dispatch(getMessage(json.message));
-    })
-    .catch((e) => {
+    }).catch((e) => {
       console.log(e);
     });
 };

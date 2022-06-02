@@ -7,7 +7,7 @@ function Greetings() {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(getMessageFromAPI);
+    dispatch(getMessageFromAPI());
   };
 
   return (
