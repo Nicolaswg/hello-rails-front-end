@@ -8,11 +8,9 @@ export const getMessage = (payload) => ({
 
 export const getMessageFromAPI = () => async (dispatch) => {
   await fetch('http://localhost:3000/api/v1/messages')
-    .then((response) => response.json)
+    .then((response) => response.json())
     .then((json) => {
       dispatch(getMessage(json.message));
-    }).catch((e) => {
-      console.log(e);
     });
 };
 
